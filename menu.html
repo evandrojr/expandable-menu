@@ -1,39 +1,69 @@
 <menu>
 
   <div class="container">
-    <div each={ items }>
-      <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#{name}">{ name }</button>
- 
-      <div id="{name}" class="collapse">
-        
-          <div if = {children}>
-            tem children
-          </div>
-          
-          <div if = {!children}>
-              não tem children
-          </div>
-  
-      </div>
-    </div>
+    <ul each={ items }>
+      <h1 if={children} data-toggle="collapse" data-target="#{name}">{ name }</h1>
+      <h1 if={!children}>{ name }</h1>
+      <li id="{name}" class="collapse">
+        <ul if={children} each={ children }>
+          <h2 if={children2} data-toggle="collapse" data-target="#{name}">{ name } </h2>
+          <h2 if={!children2}>{ name } </h2>
+          <li id="{name}" class="collapse">
+            <ul if={children} each={ children2 }>
+              <h3 data-toggle="collapse" data-target="#{name}">{ name } </h3>
+              <li id="{name}" class="collapse">
+              </li>
+            </ul>
+          </li>
+        </ul>
+    </ul>
   </div>
 
   <script>
-    this.message = 'Hello, Riot!'
-    this.items = [
-      {
-        name: 'Marvel', children: [
-          { name: 'Spider-man' },
-          { name: 'Hulk' },
+    this.marvel = {
+      name: 'Marvel', children: [
+        {
+          name: 'Spider-man', children2: [
+            { name: 'Mary Jane' },
+            { name: 'Uncle Ben' },
+            { name: 'Aunty May' },
+          ]
+        },
+        { name: 'Hulk' },
+      ]
+    }
+    this.dc =      {
+        name: 'DC', children: [
+          { name: 'Super-Man' },
+          { name: 'Batman' },
         ]
+     }
+
+    this.items = [
+      this.marvel,
+      this.dc,
+      {
+        name: 'Without children 1',
       },
-      { name: 'DC' },
+      {
+        name: 'Without children 2',
+      },
+
+
     ]
   </script>
 
   <style>
     :scope {
       font-size: 2rem
+    }
+
+    h1 {
+      color: blue
+    }
+
+    h2 {
+      color: red
     }
 
     h3 {
