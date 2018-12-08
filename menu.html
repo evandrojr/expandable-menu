@@ -2,17 +2,15 @@
 
   <div class="container">
     <ul each={ items }>
-      <h1 if={children} data-toggle="collapse" data-target="#{name}">{ name }</h1>
-      <h1 if={!children}>{ name }</h1>
-      <li id="{name}" class="collapse">
-        <ul if={children} each={ children }>
-          <h2 if={children2} data-toggle="collapse" data-target="#{name}">{ name } </h2>
-          <h2 if={!children2}>{ name } </h2>
-          <li id="{name}" class="collapse">
-            <ul if={children} each={ children2 }>
-              <h3 data-toggle="collapse" data-target="#{name}">{ name } </h3>
-              <li id="{name}" class="collapse">
-              </li>
+      <h1 if={ children } data-toggle="collapse" data-target="#{name}">{ name }</h1>
+      <h1 if={ !children } onclick={ action } >{ name }</h1>
+      <li id={ name } class="collapse">
+        <ul if={ children } each={ children }>
+          <h2 if={ children2 } data-toggle="collapse" data-target="#{name}">{ name } </h2>
+          <h2 if={ !children2 } onclick={ action }>{ name } </h2>
+          <li id={ name } class="collapse">
+            <ul if={ children2 } each={ children2 }>
+              <h3 data-toggle="collapse" data-target="#{name}" onclick={ action }>{ name } </h3>
             </ul>
           </li>
         </ul>
@@ -24,7 +22,7 @@
       name: 'Marvel', children: [
         {
           name: 'Spider-man', children2: [
-            { name: 'Mary Jane' },
+            { name: 'Mary Jane', action: 'alert("My boyfriend")' },
             { name: 'Uncle Ben' },
             { name: 'Aunty May' },
           ]
@@ -32,18 +30,18 @@
         { name: 'Hulk' },
       ]
     }
-    this.dc =      {
-        name: 'DC', children: [
-          { name: 'Super-Man' },
-          { name: 'Batman' },
-        ]
-     }
+    this.dc = {
+      name: 'DC', children: [
+        { name: 'Super-Man' , action: 'alert("I am on the second level!")'},
+        { name: 'Batman' },
+      ]
+    }
 
     this.items = [
       this.marvel,
       this.dc,
       {
-        name: 'Without children 1',
+        name: 'Without children 1', action: 'alert("no kids!!!")'
       },
       {
         name: 'Without children 2',
