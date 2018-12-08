@@ -1,28 +1,21 @@
 <!doctype html>
 <html>
-
   <head>
     <title>Menu expansível</title> 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
   </head>
   <body>
     <menu></menu>
-
     <!-- riot tags -->
     <script type="riot/tag" src="menu.html"></script>
-
     <!-- scripts we need -->
     <script src="riot+compiler.min.js"></script>
-
-    <!-- mount this app -->
+    <!-- mount the menu -->
     <script>
-      riot.mount('*')
+      riot.mount('menu')
     </script>
   </body>
-
 </html>

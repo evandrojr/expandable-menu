@@ -6,11 +6,11 @@
       <h1 if={ !children } onclick={ action } >{ name }</h1>
       <li id={ name } class="collapse">
         <ul if={ children } each={ children }>
-          <h2 if={ children2 } data-toggle="collapse" data-target="#{name}">{ name } </h2>
+          <h2 if={ children2 } data-toggle="collapse" data-target="#{name}">{ name }</h2>
           <h2 if={ !children2 } onclick={ action }>{ name } </h2>
           <li id={ name } class="collapse">
             <ul if={ children2 } each={ children2 }>
-              <h3 data-toggle="collapse" data-target="#{name}" onclick={ action }>{ name } </h3>
+              <h3 data-toggle="collapse" data-target="#{name}" onclick={ action }>{ name }</h3>
             </ul>
           </li>
         </ul>
@@ -46,9 +46,8 @@
       {
         name: 'Without children 2',
       },
-
-
     ]
+    
   </script>
 
   <style>
