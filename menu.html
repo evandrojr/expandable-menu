@@ -1,0 +1,24 @@
+<menu>
+  <h3>{ message }</h3>
+  vac
+  <ul>
+    <li each={ techs }>{ name }</li>
+  </ul>
+
+
+
+  <script>
+    this.message = 'Hello, Riot!'
+    this.techs = [
+      { name: 'HTML' },
+      { name: 'JavaScript' },
+      { name: 'CSS' }
+    ]
+  </script>
+
+  <style>
+    :scope { font-size: 2rem }
+    h3 { color: green }
+    ul { color: #999 }
+  </style>
+</menu>
