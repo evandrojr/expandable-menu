@@ -1,9 +1,12 @@
 <menu>
 
-  <div class="container">
+  <div class="container frame-area">
     <ul each={ items }>
-      <h1 if={ children } data-toggle="collapse" data-target="#{name}">{ name }</h1>
-      <h1 if={ !children } onclick={ action } >{ name }</h1>
+      <div class="option">
+        <h1 if={ children } data-toggle="collapse" data-target="#{name}">{ name }</h1>
+        <h1 if={ !children } onclick={ action } >{ name }</h1>
+        <img class="arrow" src="img/arrow-down.png">
+      </div>
       <li id={ name } class="collapse">
         <ul if={ children } each={ children }>
           <h2 if={ children2 } data-toggle="collapse" data-target="#{name}">{ name }</h2>
@@ -52,23 +55,88 @@
 
   <style>
     :scope {
-      font-size: 2rem
+      font-family: 'Open Sans',arial,sans-serif;
+    }
+
+    .option{
+      display: flex;
+      justify-content: space-between;
+      background-color: #7f9dd3;
+
+    }
+
+    .arrow{
+      margin: 5px;
+      width: 10px;
+      height: 6px;
+      
     }
 
     h1 {
-      color: blue
-    }
+      font-size: 14px;
+      border-bottom: 1px solid #7f8fad;
+      color: white;
+      background-color: #7f9dd3;
+      font-weight: 700;
+      cursor: pointer;
+      padding: 0.2em;
+      border: 0;
+      margin: 0;
+      width: 100%;
+   }
 
     h2 {
-      color: red
+      font-size: 14px;
+      color: red;
+      font-weight: 700;
+      cursor: pointer;
+      padding: 0.2em;
+      border: 0;
+      margin: 0;
     }
 
     h3 {
-      color: green
+      font-size: 14px;
+      color: green;
+      font-weight: 700;
+      cursor: pointer;
+      padding: 0.2em;
+      border: 0;
+      margin: 0;
     }
 
     ul {
-      color: #999
+      font-size: 14px;
+      color: #999;
+      padding: 0;
+      border: 0;
+      margin: 0;
+      margin-block-start: 0;
+      margin-block-end: 0;
+      margin-inline-start: 0px;
+      margin-inline-end: 0px;
+      padding-inline-start: 0px;
+      font-weight: 700;
+      cursor: pointer;
+      padding: 0;
+      border: 0;
+      margin: 0;
     }
+
+    li {
+      padding: 0;
+      border: 0;
+      margin: 0;
+    }
+
+    .frame-area{
+      background: #bfc7d6;
+    }
+
+    .container{
+      padding: 0;
+      border: 0;
+    }
+
   </style>
 </menu>
