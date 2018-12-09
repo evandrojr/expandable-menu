@@ -2,8 +2,11 @@
 
   <div class="container frame-area">
     <ul each={ items }>
-      <h1 if={ children } data-toggle="collapse" data-target="#{name}">{ name }</h1>
-      <h1 if={ !children } onclick={ action } >{ name }</h1>
+      <div class="option">
+        <h1 if={ children } data-toggle="collapse" data-target="#{name}">{ name }</h1>
+        <h1 if={ !children } onclick={ action } >{ name }</h1>
+        <img class="arrow" src="img/arrow-down.png">
+      </div>
       <li id={ name } class="collapse">
         <ul if={ children } each={ children }>
           <h2 if={ children2 } data-toggle="collapse" data-target="#{name}">{ name }</h2>
@@ -55,6 +58,20 @@
       font-family: 'Open Sans',arial,sans-serif;
     }
 
+    .option{
+      display: flex;
+      justify-content: space-between;
+      background-color: #7f9dd3;
+
+    }
+
+    .arrow{
+      margin: 5px;
+      width: 10px;
+      height: 6px;
+      
+    }
+
     h1 {
       font-size: 14px;
       border-bottom: 1px solid #7f8fad;
@@ -65,6 +82,7 @@
       padding: 0.2em;
       border: 0;
       margin: 0;
+      width: 100%;
    }
 
     h2 {
