@@ -1,13 +1,12 @@
-<menu>
-
-  <div class="container frame-area">
+<menu class="frame-area">
+  <div class="container ">
     <ul each={ items }>
       <div if={ children } class="level1" data-toggle="collapse" data-target="#{name}">
         <h1>{ name }</h1>
         <i class="fas fa-angle-down seta"></i>
       </div>
       <div if={ !children } class="level1" data-toggle="collapse" data-target="#{name}">
-        <h1 onclick={ action } >{ name }</h1>
+        <h1 onclick={ action }>{ name }</h1>
       </div>
       <li id={ name } class="collapse">
         <ul if={ children } each={ children }>
@@ -37,7 +36,7 @@
     }
     this.dc = {
       name: 'DC', children: [
-        { name: 'Super-Man' , action: 'alert("I am on the second level!")'},
+        { name: 'Super-Man', action: 'alert("I am on the second level!")' },
         { name: 'Batman' },
       ]
     }
@@ -46,10 +45,14 @@
       this.marvel,
       this.dc,
       {
-        name: 'Without children 1', action: 'alert("no kids!!!")'
+        name: '2-children',  children: [
+          { name: 'Super-Man', action: 'alert("I am on the second level!")' },
+          { name: 'Batman' },
+        ]
       },
       {
-        name: 'Without children 2',
+        name: 'Without children 2', action: 'alert("no kids!!!")'
+        ,
       },
       {
         name: 'Without children 3', action: 'alert("no kids!!!")'
@@ -60,33 +63,33 @@
       {
         name: 'Without children 5', action: 'alert("no kids!!!")'
       },
-   
+
 
 
     ]
 
-    $(document).ready(function(){
-    $('.level1').click(function(){
-        $child=$(this).children('i');
+    $(document).ready(function () {
+      $('.level1').click(function () {
+        $child = $(this).children('i');
         $child.toggleClass("fa-angle-down").toggleClass("fa-angle-up");
+      });
     });
-});
 
-    
+
   </script>
 
   <style>
     :scope {
-      font-family: 'Open Sans',arial,sans-serif;
+      font-family: 'Open Sans', arial, sans-serif;
     }
 
-    .level1{
+    .level1 {
       display: flex;
       justify-content: space-between;
       background-color: #7f9dd3;
     }
 
-    .seta{
+    .seta {
       margin-right: 10px;
       color: #230F75;
     }
@@ -102,7 +105,7 @@
       border: 0;
       margin: 0;
       width: 100%;
-   }
+    }
 
     h2 {
       font-size: 14px;
@@ -146,18 +149,17 @@
       padding: 0;
       border: 0;
       margin: 0;
+      padding-left: 10px;
     }
 
-    .frame-area{
-      height: 100px;
+    .frame-area {
       overflow-y: scroll;
       background: #bfc7d6;
     }
 
-    .container{
+    .container {
       padding: 0;
       border: 0;
     }
-
   </style>
 </menu>
